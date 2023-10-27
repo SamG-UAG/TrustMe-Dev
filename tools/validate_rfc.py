@@ -1,7 +1,7 @@
 import re
 
 def get_RFC_validation():
-    with open("rfc.txt", "r") as file:
+    with open('./inputs_txt/rfc.txt', "r") as file:
         data = file.read()
 
     pattern = r'\b([A-Z]{4}\d{6}[A-Z0-9]{3})\b|(?<=RFC\s)([nv])'
@@ -21,3 +21,5 @@ def get_RFC_validation():
             result[prev_rfc] = 'n'
         elif status == 'v' and prev_rfc:
             result[prev_rfc] = 'v'
+
+get_RFC_validation()
